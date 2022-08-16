@@ -2,12 +2,14 @@
  <div class="col-md-6">
   <div class="container ">
     <h1>Log in to your account.</h1>
-    <form @submit.prevent="SubmitForm">
+    <form @submit.prevent="login">
       <div >
-        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required  v-model="email">
-        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required v-model="Password">
+        <input v-model="email" type="email" name="email" id="email" class="form-control" placeholder="Email"
+         required  >
+        <input v-model="password" type="password" name="password" id="password" class="form-control" 
+        placeholder="Password" required >
       </div>
-      <button type="submit" class="btn" v-on:click="login()">Log in</button>
+      <button type="submit" class="btn">Log in</button>
     </form>
     <router-link :to="{name:'register'}" class="register">Register an account</router-link>
   </div>
@@ -17,35 +19,34 @@
 <script>
 export default {
   name: "Login",
-  // users() {
-  //   return {
-  //     email: "",
-  //     password: ""
-  //   };
-  // },
+  data(){
+    return {
+      email: "",
+      password: ""
+    }
+  },
   methods: {
-    async login() {
-      let response = await this.$store.dispatch("fetchUser", {
+    login() {
+      return this.$store.dispatch("login", {
         email: this.email,
         password: this.password
       })
-      console.error(error);
-      
-},
- ...mapActions(["LogIn"]),
-    async submit() {
-      const User = new FormData();
-      User.append("email", this.form.email);
-      User.append("password", this.form.password);
-      try {
-        await this.LogIn(User);
-        this.$router.push("/products");
-        this.showError = false;
-      } catch (error) {
-        this.showError = true;
-      }
     },
-  }
+//  ...mapActions(["LogIn"]),
+//     async submit() {
+//       const User = new FormData();
+//       User.append("email", this.form.email);
+//       User.append("password", this.form.password);
+//       try {
+//         await this.LogIn(User);
+//         this.$router.push("/products");
+//         this.showError = false;
+//       } catch (error) {
+//         this.showError = true;
+//       }
+//     },
+//   }
+}
 }
 
 </script>
