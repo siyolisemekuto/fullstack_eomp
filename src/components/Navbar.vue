@@ -8,13 +8,15 @@
               <ul class="navbar-nav collapse navbar-collapse justify-content-end" id="nav-links">
             <div v-if="!user">
                   <Searchbar/>
-                  <li><router-link to=/catalogue class=nav-link id="nav-about">Catalogue</router-link></li>
-                  <li><router-link to=/cart class=nav-link id="nav-experience">Cart</router-link></li>                        
-                  <li><router-link to=/profile class=nav-link id="nav-projects">Profile</router-link></li>
-                  <!-- <li><router-link to=/contact class=nav-link  id="nav-contact">Contact</router-link></li> -->
+                  <li><router-link to=/catalogue class=nav-link >Catalogue</router-link></li>
+                  <li><router-link to=/cart class=nav-link>Cart</router-link></li>                        
+                  <li><router-link to=/profile class=nav-link>Profile</router-link></li>
+                  <li><router-link to=/contact class=nav-link>Contact Us</router-link></li>      
+                <!-- <li><router-link to=/contact class=nav-link  id="nav-contact">Contact</router-link></li> -->
             </div>
             <div v-else>
-                 <li><router-link to=/register class=nav-link id="nav-testimonials">Register</router-link></li>
+                <li><router-link to=/contact class=nav-link>Contact Us</router-link></li>      
+                <li><router-link to=/register class=nav-link>Register</router-link></li>
             </div>
             </ul>
         </nav>
@@ -47,7 +49,9 @@ export default {
             // this.$store.dispatch('fe')
         }
     },
-    components: { Searchbar }
+    components: { 
+      Searchbar 
+      }
 }
 </script>
 <style scoped>
@@ -93,7 +97,7 @@ nav ul li a:hover::after{
 .router-link-exact-active {
   color: #C7A17F !important;
 }
-ul{
-  display: inline !important;
+#nav-links{
+  display: flex !important;
 }
 </style>

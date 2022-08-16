@@ -3,12 +3,12 @@
   <div class="container ">
     <h1>Log in to your account.</h1>
     <form @submit.prevent="login">
-      <div >
+  
         <input v-model="email" type="email" name="email" id="email" class="form-control" placeholder="Email"
          required  >
         <input v-model="password" type="password" name="password" id="password" class="form-control" 
         placeholder="Password" required >
-      </div>
+  
       <button type="submit" class="btn">Log in</button>
     </form>
     <router-link :to="{name:'register'}" class="register">Register an account</router-link>
@@ -77,7 +77,7 @@ h1{
 input{
     height: 48px;
     padding: 19px 16px 7px;
-    width:300px;
+    width:80%;
     color:black;  
     margin-bottom:10px;
 
